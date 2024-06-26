@@ -1,0 +1,220 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hiii
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: faq_delivery_time
+  examples: |
+    - what are your delivery hours?
+    - what is your time of delivery?
+    - what is your delivery time?
+#- intent: faq_track_order
+#  examples: |
+#    - how can I track my order?
+#    - how can I check the status of my order?
+- intent: faq_prohibited_items
+  examples: |
+    - what are the prohibited items which can be not delivered/courier by your company?
+    - what are the items which can be prohibited by your company?
+- intent: faq_delivery_areas
+  examples: |
+    - what are the areas in which your company provide the delivery?
+    - what are the areas in which you provide the delivery service?
+    - In which areas you provide a courier service?
+- intent: faq_lost_pkt
+  examples: |
+    - what to do in case of package is lost or damaged during transit?
+    - what to do in case of package is lost during transit?
+    - what to do in case of package is damaged during transit?
+    - what should I do in case of package is damaged or lost?
+    - what if my package is lost?
+    - what if my package is damaged?
+- intent: faq_not_avail
+  examples: |
+    - what should I do if I am not available at the time of delivery?
+    - what should I do if I am not available at the time of pickup?
+    - what if I am not available at the time of pickup?
+    - what if I am not available at the time of delivery?
+- intent: faq_collect_myself
+  examples: |
+    - can I collect the shipment myself from the delivery facility center?
+    - can I collect the shipment myself?
+    - can I collect my package by myself?
+- intent: faq_open_pkt
+  examples: |
+    - can I check my parcel before accepting it?
+    - can I check my parcel when I receive it?
+    - can I open my parcel for checking received parcel is right one?
+- intent: faq_cancel_delivery
+  examples: |
+    - how do I cancel my delivery?
+    - how do I cancel my pickup?
+    - how do I cancel my order?
+    - I want to cancel my order, then what to do?
+    - I want to cancel my order, then what should I do?
+- intent: faq_fragile_items
+  examples: |
+    - how your company take care of fragile items?
+    - can I parcel fragile items through your service?
+    - what is the care for fragile items taken by you?
+- intent: faq_new_shipment
+  examples: |
+    - how can I courier a parcel through your delivery company?
+    - how can I order a new shipment?
+- intent: faq_partner
+  examples: |
+    - I am a Business Owner. how can I start using Tapuz delivery as my logistic partner?
+    - how can I join the Tapuz delivery as partner in business?
+- intent: faq_international_shipping
+  examples: |
+    - do you provide international shipping?
+    - do you provide international delivery?
+    - do you provide international courier service?
+    - can I deliver the parcel in another country?
+    - can I get the parcel from the another country?
+    - can you provide your courier service outside the country?
+- intent: get_quotation
+  examples: |
+    - get quotation
+    - Get quotation
+    - Get Quotation
+    - get quotation for delivery
+    - Get quotation for delivery
+    - Get Quotation for delivery
+    - Can you provide a quotation?
+    - I'd like to get a quotation
+    - How much will it cost?
+    - Please give me a quotation
+    - How much does it cost?
+    - What is the price for shipping?
+    - Can you quote me the price?
+    - What is the quotation?
+    - Give me a quotation
+    - Quotation please
+    - get quot
+    - I want to place new order
+    - new order please
+    - new shipping
+    - place order
+    - I want to place an order
+    - place new order
+- intent: get_address
+  examples: |
+    - from [18 Rothschild Blvd, ashdod](source_address)
+    - pickup from [7 HaArba'a St, Herzliya](source_address)
+    - yes here it is [33 Yirmiyahu St, Jerusalem](source_address)
+    - from this address: [15 Jabotinsky St, gadera](source_address)
+    - [2 Kaufmann St, Haifa](source_address)
+    - [20 Rager Blvd, Beersheba](source_address)
+    - [1 Rothschild Blvd, tamra](source_address)
+    - [27 Jaffa St, Jerusalem](source_address)
+    - [50 Hagefen St, Haifa](source_address)
+    - [15 Ben Ami St,rafat](source_address)
+    - deliver to [10 Hillel St, Rehovot](dest_address)
+    - to [5 Weizmann St, ramla](dest_address)
+    - yes here it is [22 Ben Yehuda St, Netanya](dest_address)
+    - deliver to this address: [9 Haim Levanon St, ashkelon](dest_address)
+    - [3 Hayarden St, afula](dest_address)
+    - [3 HaGefen St, Migdal](dest_address)
+    - [5 HaBustan St, Haspin](dest_address)
+    - [20 HaHistadrut St, Karmiel](dest_address)
+    - [15 HaAliyah St, Kfar Kanna](dest_address)
+- intent: get_product
+  examples: |
+    - [clothes](product)
+    - [cloths](product)
+    - [Electronic items](product)
+    - [households](product)
+    - I want to parcel [clothes](product)
+    - I want to parcel [cloths](product)
+    - I want to parcel [Electronic items](product)
+    - I want to parcel [households](product)
+- intent: get_weight
+  examples: |
+    - [100](weight) kilograms
+    - [120](weight) Kg
+    - [40](weight) kg
+    - [10](weight) KG
+    - I want to deliver [10](weight) Kg
+    - weight is about [30](weight) kg
+    - [45](weight) kg
+- intent: get_phone_number
+  examples: |
+    - My phone number is [0521234567](phone_number)
+    - Contact me at [0521234567](phone_number)
+    - You can reach me at [0549876543](phone_number)
+    - Call me at [031234567](phone_number)
+    - Reach me at [0523334444](phone_number)
+    - here it is [0521112233](phone_number)
+    - yes it is [0545556666](phone_number)
+    - [0523456987](phone_number)
+    - [048761245](phone_number)
+  #    - My phone number is [052-123-4567](phone_number)
+  #    - Contact me at [052-123-4567](phone_number)
+  #    - You can reach me at [054-987-6543](phone_number)
+  #    - Call me at [03-123-4567](phone_number)
+  #    - Reach me at [052-333-4444](phone_number)
+  #    - here it is [050-111-2233](phone_number)
+  #    - yes it is [054-555-6666](phone_number)
+- intent: new_order_confirm
+  examples: |
+    - confirm order
+    - conform order
+    - Yes, Confirm order
+    - Yes Book order
+    - Schedule a delivery
+    - Yes please
+    - Yes schedule a delivery
+- intent: do_not_confirm
+  examples: |
+    - no, I don't want to confirm the order
+    - Nope
+    - No I don't want that
+    - Not needed
+    - Not required
+- intent: display_history
+  examples: |
+    - please show me my history
+    - history of my orders
+    - history please
+- intent: check_status
+  examples: |
+    - can you check the status my order please?
+    - check status
+    - check status of my delivery
+- intent: get_order_id
+  examples: |
+    - here it is [20240402155449-cab2fe67](order_id)
+    - [20240402155608-b4fc7452](order_id)
+    - here you go [20240402155633-97229a29](order_id)
+    - take this [20240402155658-04b50f47](order_id)

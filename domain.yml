@@ -1,0 +1,172 @@
+version: '3.1'
+intents:
+- faq_delivery_time
+- faq_prohibited_items
+- faq_delivery_areas
+- faq_lost_pkt
+- faq_not_avail
+- faq_collect_myself
+- faq_open_pkt
+- faq_cancel_delivery
+- faq_fragile_items
+- faq_new_shipment
+- faq_partner
+- faq_international_shipping
+- get_address
+- get_quotation
+- get_weight
+- goodbye
+- greet
+- new_order_confirm
+- do_not_confirm
+- display_history
+- check_status
+- get_order_id
+- get_product
+- get_phone_number
+
+entities:
+- username
+- source_address
+- dest_address
+- product
+- weight
+- order_id
+- phone_number
+- total_price
+
+actions:
+- utter_get_source_address
+- utter_get_dest_address
+- set_source_address
+- utter_get_product
+- set_product
+- calculate_quotation
+- action_provide_quotation
+- utter_get_weight
+- set_dest_address
+- utter_get_phone_number
+- set_phone_number
+- utter_greet
+- action_insert_order
+- action_display_history
+- action_check_status
+- action_predict_eta
+- utter_ask_order_id
+- set_order_id
+
+slots:
+  source_address: #--
+    type: text
+    mappings:
+    - type: from_entity
+      entity: source_address
+  dest_address: #--
+    type: text
+    mappings:
+    - type: from_entity
+      entity: dest_address
+  product: #--
+    type: text
+    mappings:
+    - type: from_entity
+      entity: product
+  weight: #--
+    type: float
+    mappings:
+    - type: from_entity
+      entity: weight
+  phone_number: #--
+    type: text
+    mappings:
+    - type: from_entity
+      entity: phone_number
+  order_id:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: order_id
+  username:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: username
+  total_price:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: total_price
+
+responses:
+  utter_greet:
+  - text: 'Hey! I am here for help. You can say this: 1) New Order for delivery, 2) Get Quotation for delivery, 3) History or 4) you can ask some FAQs.'
+  - text: 'Hey! how can I help you? You can say this: 1) New Order for delivery, 2) Get Quotation for delivery, 3) History or 4) you can ask some FAQs.'
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_faq_delivery_time:
+  - text: Our delivery times vary depending on the location. Normally it is about 8 AM to 9 PM.
+  utter_faq_prohibited_items:
+  - text: We have a list of prohibited items that cannot be couriered due to safety or legal reasons. This includes hazardous materials, illegal substances, and items that are perishable. You can find the full list on our website or contact customer service for more information.
+  utter_faq_delivery_areas:
+  - text: We provide courier services all over the Israel. You can check our website or contact customer service for more information.
+  utter_faq_lost_pkt:
+  - text: In case of a lost or damaged package, please contact our customer service immediately. We will initiate an investigation and work to resolve the issue as quickly as possible.
+  utter_faq_not_avail:
+  - text: If you are not available at the time of delivery or pickup, our courier will leave a notification with instructions on how to reschedule delivery or arrange for pickup at a nearby location.
+  utter_faq_collect_myself:
+  - text: Yes, you can arrange to collect your shipment from our delivery facility center. Please contact customer service to schedule a pickup time.
+  utter_faq_open_pkt:
+  - text: Yes, you can inspect the contents of your package before accepting it. Our courier will wait while you do so to ensure everything is in order.
+  utter_faq_cancel_delivery:
+  - text: To cancel a delivery or pickup, please contact customer service as soon as possible. Please note that cancellation fees may apply depending on the stage of the delivery process and if delivery is in transit then it cannot be cancelled.
+  utter_faq_fragile_items:
+  - text: We take special care when handling fragile items to ensure they are delivered safely. We use appropriate packaging materials and handling procedures to minimize the risk of damage during transit.
+  utter_faq_new_shipment:
+  - text: To courier a parcel through our company, you can visit our website or mobile app to schedule a pickup. Alternatively, you can drop off your parcel at one of our locations. Another option you can also schedule a pickup using this chat assistant itself.
+  utter_faq_partner:
+  - text: To start using Tapuz Delivery as your partner, please contact our business team for more information on our services and pricing plans.
+  utter_faq_international_shipping:
+  - text: No, we don't provide an international courier service.
+  utter_get_source_address:
+  - text: Please give me full address of source location(e.g. 7 HaArba'a St, Herzliya).
+  utter_get_dest_address:
+  - text: Please give me full address of destination location(e.g. 7 HaArba'a St, Herzliya).
+  utter_get_product:
+  - text: We parcel only (electronic, households, clothes, electric) these category of items. What do you want to deliver(Product Category)?
+  - text: We parcel only (electronic, households, clothes, electric) these category of items. Which item(Product Category) do you want to parcel?
+  - text: We parcel only (electronic, households, clothes, electric) these category of items. Give me the item(Product Category) which you want to parcel?
+  - text: We parcel only (electronic, households, clothes, electric) these category of items. which product category do you want to deliver?
+  - text: We parcel only (electronic, households, clothes, electric) these category of items. Please tell me about product category.
+  utter_get_weight:
+  - text: Alright. now provide me approx. weight of parcel(in Kg).
+  - text: Now give me approximate weight of parcel(in Kg).
+  - text: Give me approximate weight of parcel(in Kg).
+  - text: What is the approximate weight(in Kg) you want to deliver?
+  utter_get_phone_number:
+  - text: Tell me your phone number please.
+  - text: enter your phone number please.
+  utter_error:
+  - text: sorry! we don't provide the service in this areas. Please enter some other city names and recheck again.
+  utter_error_from_location:
+  - text: Sorry! please enter other nearby source location again. We don't provide service in that area.
+  utter_error_to_location:
+  - text: Sorry! please enter other nearby destination location again. We don't provide service in that area.
+  utter_error_products:
+  - text: Sorry we don't parcel this item. We parcel only [electronic, households, clothes, electric] these category of items.
+  utter_error_phone_number:
+  - text: Please write your phone number in valid format(e.g. 0X-YYY-YYYY and 05X-YYY-YYYY)
+  utter_error_order_id:
+    - text: Please write your order id in valid format(e.g. timestamp(14)-uniqueid(8))
+  utter_order_placed:
+  - text: Thank you, Your order has been placed.
+  utter_other_assistance:
+  - text: Ohk, No problem! If you have any more questions or need further assistance, feel free to ask.
+  utter_ask_order_id:
+  - text: please provide me the order id.
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

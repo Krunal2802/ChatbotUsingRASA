@@ -1,0 +1,51 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: provide quotation
+  steps:
+  - intent: get_weight
+  - action: calculate_quotation
+
+- rule: get phone number if user want to confirm order
+  steps:
+    - action: calculate_quotation
+    - intent: new_order_confirm
+    - action: utter_get_phone_number
+
+- rule: insert order
+  steps:
+    - intent: get_phone_number
+    - action: set_phone_number
+    - action: action_insert_order
+    - action: action_predict_eta
+
+- rule: don't confirm
+  steps:
+    - action: calculate_quotation
+    - intent: do_not_confirm
+    - action: utter_other_assistance
+
+- rule: display history as table
+  steps:
+    - intent: display_history
+    - action: action_display_history
+
+- rule: check status of delivery using order_id
+  steps:
+#    - intent: check_status
+#    - action: utter_ask_order_id
+    - intent: get_order_id
+    - action: set_order_id
+    - action: action_check_status
+

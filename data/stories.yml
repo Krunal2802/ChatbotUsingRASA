@@ -1,0 +1,119 @@
+version: "3.1"
+
+stories:
+- story: faq - ask delivery time
+  steps:
+    - intent: faq_delivery_time
+    - action: utter_faq_delivery_time
+
+- story: faq - ask about prohibited items
+  steps:
+    - intent: faq_prohibited_items
+    - action: utter_faq_prohibited_items
+
+- story: faq - ask about delivery areas
+  steps:
+    - intent: faq_delivery_areas
+    - action: utter_faq_delivery_areas
+
+- story: faq - ask about lost pkt or damaged pkt
+  steps:
+    - intent: faq_lost_pkt
+    - action: utter_faq_lost_pkt
+
+- story: faq - ask if not available
+  steps:
+    - intent: faq_not_avail
+    - action: utter_faq_not_avail
+
+- story: faq - ask collect myself
+  steps:
+    - intent: faq_collect_myself
+    - action: utter_faq_collect_myself
+
+- story: faq - ask open to check pkt
+  steps:
+    - intent: faq_open_pkt
+    - action: utter_faq_open_pkt
+
+- story: faq - ask for cancel delivery
+  steps:
+    - intent: faq_cancel_delivery
+    - action: utter_faq_cancel_delivery
+
+- story: faq - ask for taken care of fragile items
+  steps:
+    - intent: faq_fragile_items
+    - action: utter_faq_fragile_items
+
+- story: faq - ask for new order shipment
+  steps:
+    - intent: faq_new_shipment
+    - action: utter_faq_new_shipment
+
+- story: faq - ask for business partner
+  steps:
+    - intent: faq_partner
+    - action: utter_faq_partner
+
+- story: faq - ask for international service
+  steps:
+    - intent: faq_international_shipping
+    - action: utter_faq_international_shipping
+
+- story: user want new order
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: get_quotation
+    - action: utter_get_source_address
+    - intent: get_address # get_source_address
+    - action: set_source_address
+    - action: utter_get_dest_address
+    - intent: get_address # get_dest_address
+    - action: set_dest_address
+    - action: utter_get_product
+    - intent: get_product
+    - action: set_product
+    - action: utter_get_weight
+    - intent: get_weight
+    - action: calculate_quotation
+    - intent: new_order_confirm
+    - action: utter_get_phone_number
+    - intent: get_phone_number
+    - action: set_phone_number
+    - action: action_insert_order
+    - action: action_predict_eta
+
+- story: don't confirm order
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: get_quotation
+    - action: utter_get_source_address
+    - intent: get_address # get_source_address
+    - action: set_source_address
+    - action: utter_get_dest_address
+    - intent: get_address # get_dest_address
+    - action: set_dest_address
+    - action: utter_get_product
+    - intent: get_product
+    - action: set_product
+    - action: utter_get_weight
+    - intent: get_weight
+    - action: calculate_quotation
+    - intent: do_not_confirm
+    - action: utter_other_assistance
+
+- story: display history as table
+  steps:
+    - intent: display_history
+    - action: action_display_history
+
+- story: check status of delivery
+  steps:
+    - intent: check_status
+    - action: utter_ask_order_id
+    - intent: get_order_id
+    - action: set_order_id
+    - action: action_check_status
